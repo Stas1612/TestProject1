@@ -1,0 +1,28 @@
+<h1 id="tableLabel">Test App</h1>
+
+<input type="file" (change)="handleFileInput($event.target.files)" class="file-upload" value="Выбрать файл" />
+<button (click)="uploadFileToActivity()">Загрузить на сервер</button>
+
+<div class="col-md-4">
+  <span class="upload" *ngIf="progress > 0">
+    {{progress}}%
+  </span>
+  <span class="upload" *ngIf="message">
+    {{message}}
+  </span>
+</div>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="dataSets">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let dataset of dataSets">
+      <td>{{ dataset.name }}</td>
+      <td>{{ dataset.date }}</td>
+    </tr>
+  </tbody>
+</table>
